@@ -19,8 +19,9 @@ class TwitterRecentEntriesPlugin(CMSPluginBase):
     def get_plugin_media(self, request, context, plugin):
         return Media(
             js =(
-                 'http://twitter.com/javascripts/blogger.js',
-                 'http://twitter.com/statuses/user_timeline/%s.json?callback=twitterCallback2&amp;count=%s' % (plugin.twitter_user, plugin.count),
+                 # Not required as these two need to be included AFTER the head, due to a requirement in blogger.js for accessing target element
+                 # 'http://twitter.com/javascripts/blogger.js',
+                 # 'http://twitter.com/statuses/user_timeline/%s.json?callback=twitterCallback2&amp;count=%s' % (plugin.twitter_user, plugin.count),
             )
         )
     
